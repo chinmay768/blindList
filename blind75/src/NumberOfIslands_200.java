@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class NumberOfIslands {
+public class NumberOfIslands_200 {
 
     private class Pair {
         int i;
