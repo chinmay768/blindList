@@ -46,7 +46,3 @@ public class SpiralMatrix_54 {
         System.out.println(spiralOrder(matrix));
     }
 }
-
-7
-9
-6
