@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class LongestConsecutiveSequence_128 {
@@ -28,9 +29,27 @@ public class LongestConsecutiveSequence_128 {
     }
 
     public int longestConsecutiveOptimal(int[] nums) {
-        Set<HashSet> set = new HashSet<>();
+        Set<Integer> set = new HashSet<>();
 
+        for (int i = 0; i < nums.length; i++) {
+            set.add(nums[i]);
+        }
+        int maxlen = 1;
+        for (Integer num : set) {
+            if(!set.contains(num - 1)){
+                int cnt = 1;
+                int elm = num;
 
+                while (set.contains(elm + 1)){
+                    cnt++;
+                    elm = elm + 1;
+                }
+
+                maxlen = Math.max(maxlen, cnt);
+            }
+        }
+
+        return maxlen;
     }
 
     public static void main(String[] args) {
