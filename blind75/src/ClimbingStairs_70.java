@@ -1,7 +1,57 @@
+import java.util.Arrays;
+
 public class ClimbingStairs_70 {
 
-    public static void main(String[] args) {
+    public static int climbStairsRecursion(int n) {
+        if(n < 0) return 0;
+        if(n == 0) return 1;
 
+        //Take steps
+        int oneStep = climbStairsRecursion(n - 1);
+        int twoSteps = climbStairsRecursion(n - 2);
+
+        return oneStep + twoSteps;
+    }
+
+    public static int climbStairs(int n){
+        int[] dp = new int[n + 1];
+        Arrays.fill(dp, -1);
+        return climbStairsRecursionDP(n, dp);
+    }
+
+    //TC: O(n)  SC: O(n)
+    public static int climbStairsRecursionDP(int n, int[] dp) {
+        if(n < 0) return 0;
+        if(n == 0) return 1;
+
+        if(dp[n] != -1) return dp[n];
+
+        //Take steps
+        int oneStep = climbStairsRecursion(n - 1);
+        int twoSteps = climbStairsRecursion(n - 2);
+
+        return dp[n] = oneStep + twoSteps;
+    }
+
+    //TC: O(n)   SC: O(1)
+    public static int climbStairsRecursionTabulation(int n) {
+        if(n <= 1) return 1;
+
+        int prev2 = 1;
+        int prev1 = 1;
+
+        for(int i = 2; i <= n; i++) {
+            int curr = prev1 + prev2;
+            prev2 = prev1;
+            prev1 = curr;
+        }
+
+        return prev1;
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(climbStairsRecursionTabulation(3));
     }
 }
 
