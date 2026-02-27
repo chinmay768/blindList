@@ -30,6 +30,7 @@ public class ContainerWithMostWater_11 {
 
             maxCapacity = Math.max(maxCapacity, capacity);
 
+
             if(height[left] < height[right]){
                 left++;
             }else {
