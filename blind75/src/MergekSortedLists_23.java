@@ -15,6 +15,10 @@ public class MergekSortedLists_23 {
 
 
     // Better
+    // (N1 + N2) + (n1 + n2 + n3) + (n1 + n2 + n3 + n4)
+    // N + (2N + 3N + 4N)
+    // N (1 + 2 + 3 + --- + K)
+    // TC: n * (k * (k + 1) / 2)
     public static ListNode mergeKLists(ListNode[] lists) {
         if(lists.length == 0) return null;
         ListNode temp = lists[0];
