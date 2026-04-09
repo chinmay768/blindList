@@ -31,6 +31,7 @@ public class MedianOfTwoSortedArrays_4 {
         return 0;
     }
 
+
     public static void main(String[] args) {
         int[] arr1= {1};
         int[] arr2 = {};
